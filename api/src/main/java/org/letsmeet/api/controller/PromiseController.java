@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/promise")
+@RequestMapping("/promises")
 public class PromiseController {
     /**
      * id 값 자동 생성을 위한 field
@@ -37,12 +37,12 @@ public class PromiseController {
         promiseList.put(sequence, new Promise(sequence++,"test10", "2022-12-09", "역삼역", "test description10", "1"));
     }
 
-    @GetMapping("/{promiseId}")
+    @GetMapping("/single/{promiseId}")
     public Promise getPromise(@PathVariable("promiseId") int promiseId) {
         return promiseList.get(promiseId);
     }
 
-    @GetMapping("/list/{groupId}")
+    @GetMapping("/{groupId}")
     public List <Promise> getPromiseList(@PathVariable("groupId") String groupId) {
         return promiseList.values().stream()
                 .filter(v -> v.getGroupId().equals(groupId))
