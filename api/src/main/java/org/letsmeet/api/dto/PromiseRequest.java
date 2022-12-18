@@ -1,12 +1,9 @@
 package org.letsmeet.api.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-public class Promise {
-	private int id;
+public class PromiseRequest {
 	private String name;
 	private String date;
 	private String location;
